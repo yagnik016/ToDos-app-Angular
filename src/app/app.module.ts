@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { TodosComponent } from './Components/todos/todos.component';
-import { TodoItemsComponent } from './todo-items/todo-items.component';
+import { TodoItemsComponent } from './Components/todo-items/todo-items.component';
 import { AddtodoComponent } from './Components/addtodo/addtodo.component';
 
 @NgModule({

@@ -1,12 +1,14 @@
-<form >
+<div class="my-3">
+  <form (ngSubmit)="onSubmit()">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Title</label>
-      <input type="email" class="form-control" id="title" aria-describedby="emailHelp">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" [(ngModel)]="title" class="form-control" name="title" id="title" aria-describedby="emailHelp" >
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Description</label>
-      <input type="password" class="form-control" id="description">
+      <label for="description" class="form-label" >Description</label>
+      <input type="text" [(ngModel)]="description" class="form-control" name="description" id="description" >
     </div>
   
     <button  class="btn btn-primary">Add Todo</button>
   </form>
+</div>

@@ -4,41 +4,28 @@ import { Todo } from 'src/app/Todo';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.css']
+  styleUrls: ['./todos.component.css'],
 })
 export class TodosComponent {
-  todos:Todo[];
+  todos: Todo[];
+  localItem:string;
   constructor() {
-    this.todos = [
-      {
-        sno: 1,
-        title: "Todo 1",
-        description: "This is description 1",
-        active: true
-      },
-      {
-        sno: 2,
-        title: "Todo 2",
-        description: "This is description 2",
-        active: false
-      },
-      {
-        sno: 3,
-        title: "Todo 3",
-        description: "This is description 3",
-        active: true
-      },
-      {
-        sno: 4,
-        title: "Todo 4",
-        description: "This is description 4",
-        active: false
-      }
-    ]
+    this.localItem = localStorage.getItem('todos')!;
+    if (this.localItem === null) {
+      this.todos = [];
+    } else {
+      this.todos = JSON.parse(this.localItem);
+    }
   }
-deleteTodo(todo:Todo){
-  console.log(todo);
-  this.todos=this.todos.filter((t)=>t!==todo);
-}
+  
+  deleteTodo(todo: Todo) {
+    console.log(todo);
+    this.todos = this.todos.filter((t) => t !== todo);
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
 
+  todoAdd(todo: Todo) {
+    this.todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
 }

@@ -9,6 +9,8 @@ import { Todo } from '../../Todo';
 export class TodoItemsComponent {
 @Input() todo: Todo;
 @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
+@Output() todoChechkbox: EventEmitter<Todo> = new EventEmitter();
+
 constructor() {
   this.todo = {
     sno: 1,
@@ -19,4 +21,8 @@ constructor() {
 }
 onclick(todo: Todo) {
 this.todoDelete.emit(todo);}
+
+onCheckboxClick(todo: Todo) {
+  this.todoChechkbox.emit(todo)
+}
 }
